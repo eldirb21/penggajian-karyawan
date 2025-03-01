@@ -1,6 +1,4 @@
-<!-- components/sidebar.php -->
 <div id="sidebar" class="sidebar show">
-    <!-- <button id="toggleSidebar" class="btn btn-primary">☰</button> -->
     <ul class="list-group">
         <li class="list-group-item"><a href="dashboard.php">Dashboard</a></li>
         <li class="list-group-item"><a href="karyawan.php">Karyawan</a></li>
@@ -16,7 +14,8 @@
         height: 100vh;
         position: fixed;
         top: 0;
-        left: 0; /* Default terbuka */
+        left: 0;
+        /* Default terbuka */
         background-color: #343a40;
         padding-top: 60px;
         transition: left 0.3s ease-in-out;
@@ -43,7 +42,7 @@
     #toggleSidebar {
         position: fixed;
         top: 15px;
-        left: 260px; /* Awalnya disesuaikan dengan sidebar terbuka */
+        left: 260px;
         width: 40px;
         height: 40px;
         border-radius: 5px;
@@ -57,7 +56,7 @@
 
     .main-content {
         transition: margin-left 0.3s ease-in-out;
-        margin-left: 250px; /* Awalnya digeser */
+        margin-left: 250px;
     }
 
     .main-content.shift {
@@ -75,7 +74,6 @@
             sidebar.classList.toggle("hide");
             content.classList.toggle("shift");
 
-            // Pindahkan tombol agar tetap terlihat
             if (sidebar.classList.contains("hide")) {
                 toggleButton.style.left = "10px";
             } else {

@@ -11,8 +11,9 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
+        $hashedPassword = $user['password'];
+        if (password_verify($password, $hashedPassword) || $password === $hashedPassword) {
 
-        if ($password === $user['password']) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['nama'] = $user['nama'];

@@ -144,7 +144,8 @@ ini_set('display_errors', 1);
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-register"><i class="fa-solid fa-user-check"></i> Daftar</button>
+            <button type="submit" name="submit" class="btn btn-register"><i class="fa-solid fa-user-check"></i>
+                Daftar</button>
         </form>
         <p class="text-center mt-3">Sudah punya akun? <a href="login.php">Login</a></p>
     </div>

@@ -1,5 +1,5 @@
 <?php
-include '../config/conn.php'; // Koneksi ke database
+include '../config/conn.php';
 
 $query = "SELECT * FROM users";
 $result = mysqli_query($koneksi, $query);

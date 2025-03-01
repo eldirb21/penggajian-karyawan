@@ -4,8 +4,13 @@ session_start();
 //     header("Location: login.php");
 //     exit();
 // }
-
 include('../config/conn.php');
+
+
+// $user_id = $_SESSION['user_id'];
+// $query_user = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$user_id'");
+// $user = mysqli_fetch_assoc($query_user);
+// echo "<script>console.log('Debug Objects: " . $user . "' );</script>";
 
 // Ambil data total user
 $totalUserQuery = "SELECT COUNT(*) as total_user FROM users";

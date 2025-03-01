@@ -16,7 +16,7 @@
         top: 0;
         left: 0;
         /* Default terbuka */
-        background-color: #343a40;
+        background-color:rgb(72, 169, 76);
         padding-top: 60px;
         transition: left 0.3s ease-in-out;
         z-index: 1000;

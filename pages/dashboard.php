@@ -7,10 +7,13 @@ session_start();
 include('../config/conn.php');
 
 
-// $user_id = $_SESSION['user_id'];
-// $query_user = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$user_id'");
-// $user = mysqli_fetch_assoc($query_user);
-// echo "<script>console.log('Debug Objects: " . $user . "' );</script>";
+
+$user_id = $_SESSION['id'];
+$query_user = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$user_id'");
+$user = mysqli_fetch_assoc($query_user);
+$user_json = json_encode($user);
+
+echo "<script>console.log('Debug Objects: " . $user_json . "' );</script>";
 
 // Ambil data total user
 $totalUserQuery = "SELECT COUNT(*) as total_user FROM users";
@@ -75,9 +78,17 @@ $total_gaji_json = json_encode($total_gaji);
             font-weight: bold;
         }
 
-        .bg-blue { background-color: #3498db; }
-        .bg-green { background-color: #2ecc71; }
-        .bg-orange { background-color: #f39c12; }
+        .bg-blue {
+            background-color: #3498db;
+        }
+
+        .bg-green {
+            background-color: #2ecc71;
+        }
+
+        .bg-orange {
+            background-color: #f39c12;
+        }
     </style>
 </head>
 
@@ -86,7 +97,11 @@ $total_gaji_json = json_encode($total_gaji);
     <?php include('../components/sidebar.php'); ?>
 
     <div class="main-content">
-        <?php include('../components/header.php'); ?>
+        <?php
+        $headerData = [
+            "currentUser" => $user_json,
+        ];
+        include('../components/header.php'); ?>
 
         <div class="container">
             <h2 class="mt-4 text-center">📊 Dashboard Statistik</h2>

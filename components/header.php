@@ -2,6 +2,13 @@
 <?php
 session_start();
 $avatar = $_SESSION['user']['gambar'] ?? "https://cdn-icons-png.flaticon.com/512/219/219983.png";
+
+if (isset($headerData['currentUser'])) {
+    $currentUser = json_decode($headerData['currentUser'], true);
+}
+
+echo "<script>console.log('Debug currentUser: " . ($headerData['currentUser']['nama'] ?? 'Guest') . "' );</script>";
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

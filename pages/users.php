@@ -107,6 +107,7 @@ $result = mysqli_query($koneksi, $query);
                             <th>ID</th>
                             <th>Nama</th>
                             <th>Email</th>
+                            <th>Contact</th>
                             <th>Role</th>
                             <th>Gambar</th>
                             <th>Aksi</th>
@@ -118,6 +119,7 @@ $result = mysqli_query($koneksi, $query);
                                 <td><?= $row['id']; ?></td>
                                 <td><?= htmlspecialchars($row['nama']); ?></td>
                                 <td><?= htmlspecialchars($row['email']); ?></td>
+                                <td><?= htmlspecialchars($row['phone']); ?></td>
                                 <td><?= htmlspecialchars($row['role']); ?></td>
                                 <td>
                                     <img src="<?= htmlspecialchars($row['gambar']); ?>" class="img-profile"

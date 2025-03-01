@@ -8,6 +8,7 @@ $user = mysqli_fetch_assoc($result);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
+    $phone = $_POST['phone'];
     $role = $_POST['role'];
 
     // Jika ada update gambar
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gambar = $pathFile;
     }
 
-    $query = "UPDATE users SET nama='$nama', email='$email', role='$role', gambar='$gambar' WHERE id=$id";
+    $query = "UPDATE users SET nama='$nama', email='$email', phone='$phone', role='$role', gambar='$gambar' WHERE id=$id";
     if (mysqli_query($koneksi, $query)) {
         header("Location: users.php");
     } else {
@@ -117,6 +118,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="mb-3">
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" value="<?= $user['email']; ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="form-control" value="<?= $user['phone']; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label>Role</label>

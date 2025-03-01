@@ -4,6 +4,7 @@ include '../config/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = trim($_POST['nama']);
     $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $role = $_POST['role'];
     $gambar = "assets/avatar/default.png"; // Default avatar
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $gambar = $pathFile;
         }
 
-        $query = "INSERT INTO users (nama, email, password, role, gambar) VALUES ('$nama', '$email', '$password', '$role', '$gambar')";
+        $query = "INSERT INTO users (nama, email,phone, password, role, gambar) VALUES ('$nama', '$email', '$phone', '$password', '$role', '$gambar')";
         if (mysqli_query($koneksi, $query)) {
             header("Location: users.php");
             exit();
@@ -126,6 +127,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="mb-3">
                         <label class="form-label">Email</label>
                         <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
